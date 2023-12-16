@@ -1,0 +1,76 @@
+header {
+    margin-top: -10px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #f2f2f2;
+}
+
+
+
+h1 {
+    color: #34e277;
+}
+
+#content-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #b4b4b4;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+    background-color: #00ff08;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7fb470;
+}
+
+#fruitInfo {
+    border: 1px solid #b4b4b4;
+    padding: 20px;
+    max-width: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    color: #22d40b;
+}
+
+p {
+    color: #00580f;
+    margin: 8px 0;
+}
+
+p.label {
+    font-weight: bold;
+}
+
+p.no-info {
+    color: #d9534f;
+}
+
+

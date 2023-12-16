@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+<script type="text/babel" src="app.jsx" defer></script>
+
+<head>
+    <title>INST377 Final Project</title>
+    
+</head>
+<style>
+    nav {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    nav a {
+        display: inline-block;
+        padding: 10px;
+        margin: 0 10px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #22d40b;
+        border-radius: 5px;
+    }
+    #dataForm {
+        padding: 10px;
+        margin: 0 10px;
+        text-decoration: none;
+        color: #00580f;
+        border-radius: 5px;
+    }
+    #dataDisplay {
+        padding: 10px;
+        margin: 0 10px;
+        text-decoration: none;
+        color: #00580f;
+        border-radius: 5px;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <nav>
+        <a href="./home.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./documentation.html">Documentation</a>
+    </nav>
+    <header><h1>Fruit Lookup</h1></header>
+    <div id="content-div"></div> 
+    <!-- will load with React --> 
+
+
+
+
+    <h2>Can't find a fruit? Request it here:</h2>
+    <form id="dataForm">
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" name="userName" autocomplete="off" required>
+        <br>
+        <label for="fruitName">Fruit Name:</label>
+        <input type="text" id="fruitName" name="fruitName" autocomplete="off" required>
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" autocomplete="off" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Previous requests: </h2>
+    <div id="dataDisplay"></div>
+
+    <script>
+        async function fetchData() {
+            const response = await fetch('http://localhost:3000/api/getData');
+            const data = await response.json();
+        
+            const table = generateTable(data);
+            document.getElementById('dataDisplay').innerHTML = table;
+        }
+      
+        function generateTable(data) {
+            const tableHeaders = ['Username', 'Fruit', 'Date'];
+            const tableRows = data.map(row => [row.user_name, row.fruit, row.date]);
+        
+            const tableHTML = `
+                <table border="1">
+                    <thead>
+                        <tr>
+                            ${tableHeaders.map(header => `<th>${header}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}
+                    </tbody>
+                </table>
+            `;
+        
+            return tableHTML;
+        }
+      
+        document.getElementById('dataForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+        
+            const userName = document.getElementById('userName').value;
+            const fruitName = document.getElementById('fruitName').value;
+            const date = document.getElementById('date').value;
+        
+            const response = await fetch('http://localhost:3000/api/addEntry', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user_name: userName, fruit: fruitName, date: date }),
+            });
+        
+            fetchData();
+        });
+      
+        fetchData();
+    </script>
+</body>
+</html>
