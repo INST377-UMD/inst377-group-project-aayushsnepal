@@ -4,7 +4,7 @@ Showcasing nutrition information about fruit where otherwise, information about 
 # Group Members
 - Aayush Nepal
 - Taylor Tran
-- 
+- Alex Rovito
 
 
 # Target Browsers and Audience
