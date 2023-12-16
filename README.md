@@ -29,6 +29,7 @@ Our proposed solution will help people make healthier food choices, targeting he
 
 
 # User Manual
+Video demonstration: https://youtu.be/U7bMQBT1N2s
 - Type a fruit name into the top search box, hit `enter`, or click `Lookup this fruit!`
 - For missing fruits, red text will appear.
 - To request a fruit to be added to the database, type it in the bottom boxes, as well as a username and a date.
