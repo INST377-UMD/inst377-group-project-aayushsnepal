@@ -2,109 +2,154 @@
 
 
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        text-align: center;
-        margin: 20px;
-        background-color: #f2f2f2;
-    }
-    
-    h1 {
-        color: #34e277;
-    }
-    
-    h2 {
-        color: #22d40b;
-    }
-    
-    p {
-        color: #00580f;
-        margin: 8px 0;
-    }
-    
-    
-    nav {
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-    
-    nav a {
-        display: inline-block;
-        padding: 10px;
-        margin: 0 10px;
-        text-decoration: none;
-        color: #fff;
-        background-color: #22d40b;
-        border-radius: 5px;
-    }
-    
-    section {
-        text-align: left;
-        margin: 0 auto; 
-        max-width: 800px; 
-      }
-      
-    
-      section ul {
-        padding: 0;
-        text-align: left; 
-      }
-      
-      section li {
-        margin-left: 20px; 
-        color: #00580f;
-      }
-      
-      section a {
-        color: #22d40b;
-        text-decoration: underline;
-      }
-      
-      section a:hover {
-        text-decoration: none;
-      }
-    
-    
+  body {
+    text-align: center;
+    margin: 20px;
+    background-color: #f3f2f2;
+  }
+
+  h1 {
+    color: #34dd75;
+  }
+
+  h2 {
+    color: #1fc709;
+  }
+  h3 {
+    color: #1fc709;
+  }
+
+  p {
+    color: #025811;
+    margin: 8px 0;
+  }
+
+
+  nav {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  nav a {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 10px;
+    color: #fff;
+    background-color: #1fc709;
+    border-radius: 5px;
+  }
+
+  section {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+
+  section ul {
+    padding: 0;
+    text-align: left;
+  }
+
+  section li {
+    margin-left: 20px;
+    color: #00580f;
+  }
+
+  section a {
+    color: #1fc709;
+    text-decoration: underline;
+  }
 </style>
 
 
 <body>
-    <nav>
-        <a href="./home.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./documentation.html">Documentation</a>
-    </nav>
+  <nav>
+    <a href="./home.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./documentation.html">Documentation</a>
+  </nav>
 
-    <header><h1>Project Developer Manual</h1></header>
+  <header>
+    <h1>Project Manual</h1>
+  </header>
 
-    <section>
-        <h2>Introduction to the INST377 Project</h2>
-        <p>Showcasing nutrition information about fruit where otherwise, information about them is all over the internet and unorganized. We are trying to solve this problem and organize all the information into one app.</p>
-      </section>
+  <section>
+    <h2>Introduction to the INST377 Project</h2>
+    <p>Showcasing nutrition information about fruit where otherwise, information about them is all over the internet and
+      unorganized. We are trying to solve this problem and organize all the information into one app.</p>
+  </section>
+
+  <section>
+    <h2>User Manual</h2>
+<h3>Video demonstration: https://youtu.be/U7bMQBT1N2s</a></h3>
+<p><a href="https://youtu.be/U7bMQBT1N2s">Video Link</a></p>
+<ul>
+  <li>Type a fruit name into the top search box, hit `enter`, or click `Lookup this fruit!`
+  <li>For missing fruits, red text will appear.
+  <li>To request a fruit to be added to the database, type it in the bottom boxes, as well as a username and a date.
+  <li> This will populate the external database and show it in a table on the webpage.
+  <li>Clicking the top navigation tabs will take you around the website. This means the home page, about page, or documentation page.
     
-      <section>
-        <h2>Requirements to view the app:</h2>
-        <OL>
-            <LI>Navigate to project folder using terminal
-            <UL>
-            <LI>Run "npm install express @supabase/supabase-js cors" in the directory
-            <LI>Run "node server.js" in the directory
-            </UL>
-            <LI>Navigate to http://localhost:3000/
-            <LI>Libraries used:
-                <UL>
-                <LI>React
-                <LI>Supabase
-                <LI>Node.js
-                <LI>Express
-                
-                </UL>
-            </OL>
-      </section>
+ 
+</ul>
+
+
+  </section>
+
+  <section>
+    <h2>Developer Manual</h2>
+    <OL>
+      <LI>Navigate to project folder using terminal
+        <UL>
+          <LI>Run "npm install express @supabase/supabase-js cors" in the directory
+          <LI>Run "node server.js" in the directory
+        </UL>
+      <LI>Navigate to http://localhost:3000/
+      <LI>Libraries used:
+        <UL>
+          <LI>React
+          <LI>Supabase
+          <LI>Node.js
+          <LI>Express
+
+        </UL>
+        <li>API's:</li>
+        <ul>
+          <li> app.get('/style.css') Sends the stylesheet to the website</li>
+          <li> app.get('/app.jsx') Sends our javascript (.jsx) to the website</li>
+          <li> app.get('/') Sends the home page to the website</li>
+          <li> app.get('/home.html') Alternative to sending home page since above one was giving an error</li>
+          <li> app.get('/about.html') Sends the about page to the website</li>
+          <li> app.get('/documentation.html') Sends the documentation page to the website</li>
+          <li> app.post('/api/addEntry') Allows the user to add an input to our database</li>
+          <li> app.get('/api/getData') Loads the database into a table</li>
+          <li> Libraries used: ReactJS, Supabase, Node.js, Express, BodyParser, CORS</li>
+        </ul>
+        <li>Bugs and Roadmap:
+          <ul>
+            <LI>We have not found any bugs during development and the app works as designed.</li>
+            <LI>Future development could include use of another API to take the fruit requests and actually load information for them instead of only storing them in a database (as like this project does for the purpose of an external database requirement)</li>
+          </ul>
       
-      <section>
-        <h2>Official Documentation</h2>
-        <p>Information from the developers of the Fruityvice API can be found here:</p>
-        <p><a href="https://www.fruityvice.com/doc/index.html">Documentation</a></p>
-      </section>
+          </li>
+          <li>Extra Credit:</li>
+          <ul>
+            <li> Used React for the home page
+              <li>Chose fonts and colors that compliment one another to make a strong user experience
+                <li>Added some hover elements to buttons
+          </ul>
+    </OL>
+  </section>
+
+  <section>
+    <h2>Full documentation</h2>
+    <p>This full documentation can also be found on our GitHub in the ReadMe.md</p>
+    <p><a href="https://github.com/INST377-UMD/inst377-group-project-aayushsnepal">GitHub Classroom Repository</a></p>
+  </section>
+  <section>
+    <h2>Official Documentation</h2>
+    <p>Information from the developers of the Fruityvice API can be found here:</p>
+    <p><a href="https://www.fruityvice.com/doc/index.html">Documentation</a></p>
+  </section>
 </body>
